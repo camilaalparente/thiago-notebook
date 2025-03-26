@@ -1,70 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meus Cadernos de Inglês</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 40px;
       background-color: #f0f4f8;
-      color: #333;
+      padding: 40px;
     }
     h1 {
-      color: #1a73e8;
       text-align: center;
+      color: #1a73e8;
+      font-size: 36px;
     }
-    .student {
-      margin-bottom: 40px;
-      background-color: #ffffff;
+    .card {
+      background-color: white;
       padding: 20px;
+      margin: 20px auto;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
     }
-    h2 {
-      color: #e91e63;
-      margin-bottom: 10px;
+    .card h2 {
+      margin: 0;
+      font-size: 24px;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    .card.heloyza h2 {
+      color: #de669c; /* rosa bebê */
     }
-    li {
-      margin-bottom: 8px;
+    .card.thiago h2 {
+      color: #1a73e8; /* azul */
     }
-    a {
+    .card a {
+      display: block;
+      margin-top: 10px;
       text-decoration: none;
       color: #1a73e8;
       font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
-
   <h1>📚 Meus Cadernos de Inglês</h1>
 
-  <div class="student">
-    <h2>👩‍🎓 Heloyza</h2>
-    <ul>
-      <li><a href="heloyza/aula1.html" target="_blank">Aula 1</a></li>
-      <!-- Você pode adicionar mais aulas assim:
-      <li><a href="heloyza/aula2.html" target="_blank">Aula 2</a></li>
-      -->
-    </ul>
+  <div class="card heloyza">
+    <h2>🎓 Heloyza</h2>
+    <a href="heloyza/aula1.html">Aula 1</a>
   </div>
 
-  <div class="student">
-    <h2>👨‍🎓 Thiago</h2>
-    <ul>
-      <li><a href="thiago/thiago.html" target="_blank">Aula 1</a></li>
-      <!-- Se quiser adicionar outras aulas no futuro:
-      <li><a href="thiago/aula2.html" target="_blank">Aula 2</a></li>
-      -->
-    </ul>
+  <div class="card thiago">
+    <h2>🎓 Thiago</h2>
+    <a href="thiago/thiago.html">Aula 1</a>
   </div>
 
 </body>
