@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Notebook - Heloyza</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #fef1f6;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #d48db4;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #d48db4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #fce6ef;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div id="export-content">
+    <h1>English Notebook - Heloyza</h1>
+
+    <div class="section">
+      <h2>📅 Date of Lesson:</h2>
+      <input type="text" id="dateInput" placeholder="Ex: March 26, 2025" />
+    </div>
+
+    <div class="section">
+      <h2>🌸 Vocabulary from the Lesson</h2>
+      <table>
+        <tr><th>Word / Expression</th><th>Meaning</th></tr>
+        <tr><td>self-confidence</td><td>The belief in your own abilities.</td></tr>
+        <tr><td>insecure</td><td>Not confident about yourself or your abilities.</td></tr>
+        <tr><td>calm down</td><td>To become relaxed after being angry or nervous.</td></tr>
+        <tr><td>fake it till you make it</td><td>Act confident until you actually feel it.</td></tr>
+        <tr><td>inner critic</td><td>The negative voice inside your mind.</td></tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>✍️ Self-reflection</h2>
+      <p><strong>Write about this:</strong> When do you feel confident? When do you feel insecure?</p>
+      <textarea id="freeWriting"></textarea>
+    </div>
+
+    <div class="section">
+      <h2>💡 Notes from Today’s Lesson</h2>
+      <textarea id="lessonNotes"></textarea>
+    </div>
+  </div>
+
+  <button onclick="saveToFile()">💾 Save as PDF</button>
+
+  <script>
+    async function saveToFile() {
+      const { jsPDF } = window.jspdf;
+      const element = document.getElementById("export-content");
+      const date = document.getElementById("dateInput").value.trim().replace(/\s+/g, '_') || 'NoDate';
+      const fileName = `Heloyza-English-Lesson-${date}.pdf`;
+
+      html2canvas(element).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4");
+        const width = pdf.internal.pageSize.getWidth();
+        const height = (canvas.height * width) / canvas.width;
+
+        pdf.addImage(imgData, "PNG", 0, 0, width, height);
+        pdf.save(fileName);
+      });
+    }
+  </script>
+</body>
+</html>
