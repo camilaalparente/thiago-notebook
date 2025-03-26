@@ -2,24 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>English Notebook - Thiago</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f0f4f8; color: #333; line-height: 1.6; }
-    h1, h2 { color: #1a73e8; }
-    .section { margin-bottom: 30px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    input[type="text"], textarea {
-      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;
-      margin-top: 5px; margin-bottom: 10px; font-size: 16px;
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #1a73e8;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
     }
     button {
-      padding: 10px 20px; font-size: 16px; background-color: #1a73e8;
-      color: white; border: none; border-radius: 5px; cursor: pointer;
+      background-color: #1a73e8;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
     }
-    button:hover { background-color: #155ab6; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #f0f4f8; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f5f5f5;
+    }
   </style>
 </head>
 <body>
@@ -27,11 +58,84 @@
 
   <div class="section">
     <h2>📅 Date of Lesson:</h2>
-    <input type="text" placeholder="Ex: March 26, 2025" />
+    <input type="text" id="dateInput" placeholder="Ex: March 26, 2025" />
   </div>
 
   <div class="section">
-    <h2>📖 Contextual Reading – *Sell or Be Sold*</h2>
-    <p><strong>SELLING IS A PREREQUISITE FOR LIFE</strong><br>
-    Selling impacts every person on this planet. Your ability or inability to sell, persuade, negotiate, and convince others will affect every area of your life and will determine how well you survive. [...]</p>
-  </
+    <h2>🔹 Vocabulary & Chunks</h2>
+    <table>
+      <tr><th>Chunk / Expression</th><th>Example</th></tr>
+      <tr><td>prerequisite for life</td><td>Selling is a prerequisite for life.</td></tr>
+      <tr><td>persuade / convincing</td><td>I persuaded my mom to let me travel.</td></tr>
+      <tr><td>get your way</td><td>He always gets his way.</td></tr>
+      <tr><td>undercapitalization</td><td>Businesses fail due to undercapitalization.</td></tr>
+      <tr><td>influence the outcome</td><td>We try to influence the outcome all the time.</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>✍️ Free Writing Practice</h2>
+    <p><strong>Write about this:</strong> Do you believe selling is part of your life? Give examples.</p>
+    <textarea id="freeWriting"></textarea>
+  </div>
+
+  <div class="section">
+    <h2>💬 Debate Questions</h2>
+    <ul>
+      <li>Do you agree that selling is a prerequisite for life? Why or why not?</li>
+      <li>Have you ever had to sell an idea to someone? What happened?</li>
+      <li>What’s the difference between “selling” and “convincing”?</li>
+      <li>Why do you think most people don’t like the idea of “sales”?</li>
+      <li>Do you agree that we are always trying to influence something?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📚 Notes from Today’s Lesson</h2>
+    <textarea id="lessonNotes"></textarea>
+  </div>
+
+  <div class="section">
+    <h2>🧠 My Difficulties in English</h2>
+    <p><i>Write what you find difficult in English right now.</i></p>
+    <textarea id="difficulties"></textarea>
+  </div>
+
+  <button onclick="saveToFile()">💾 Save Notes</button>
+
+  <script>
+    function saveToFile() {
+      const date = document.getElementById("dateInput").value;
+      const writing = document.getElementById("freeWriting").value;
+      const notes = document.getElementById("lessonNotes").value;
+      const difficulties = document.getElementById("difficulties").value;
+
+      const content = `
+Date of Lesson: ${date}
+
+--- Vocabulary & Chunks (from the lesson) ---
+- prerequisite for life
+- persuade / convincing
+- get your way
+- undercapitalization
+- influence the outcome
+
+--- Free Writing ---
+${writing}
+
+--- Notes from Today’s Lesson ---
+${notes}
+
+--- My Difficulties in English ---
+${difficulties}
+`;
+
+      const blob = new Blob([content], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `Thiago_English_Lesson_${date.replaceAll(" ", "_")}.txt`;
+      link.click();
+    }
+  </script>
+</body>
+</html>
