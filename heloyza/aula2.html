@@ -18,11 +18,6 @@
       background-size: contain;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-    }
-
     h1 {
       text-align: center;
       font-family: 'Special Elite', cursive;
@@ -36,7 +31,7 @@
     }
 
     section {
-      margin-bottom: 30px;
+      margin: 30px 40px;
       padding: 20px;
       background-color: #F2DBD5;
       border-radius: 10px;
@@ -111,101 +106,84 @@
       width: 80px;
       opacity: 0.9;
     }
+
+    .transcript {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .toggle-button {
+      background-color: transparent;
+      border: none;
+      color: #261501;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+    }
   </style>
+  <script>
+    function toggleTranscript() {
+      const transcript = document.getElementById('transcript');
+      transcript.style.display = transcript.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
 </head>
 <body>
-  <div class="container">
-    <h1>Aula 2 - Introducing Yourself</h1>
+  <h1>Aula 2 - Introducing Yourself</h1>
 
-    <section>
-      <h2>Vídeo de introdução</h2>
-      <img src="images/arm.png" alt="arm decor" class="arm-deco">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/UhV6daog0L0" title="YouTube video" frameborder="0" allowfullscreen></iframe>
-    </section>
+  <section>
+    <h2>Vídeo de introdução</h2>
+    <img src="images/arm.png" alt="arm decor" class="arm-deco">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UhV6daog0L0" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+  </section>
 
-    <section>
-      <h2>Section 1: Chunks</h2>
-      <img src="images/rabbit.png" alt="rabbit decor" class="rabbit-deco">
-      <table>
-        <tr>
-          <th>Expressão</th>
-          <th>Fonética (IPA)</th>
-          <th>Pronúncia</th>
-        </tr>
-        <tr>
-          <td>I'm Kath</td>
-          <td>/aɪm kæθ/</td>
-          <td><audio controls src="audios/im-kath.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>This is my tea</td>
-          <td>/ðɪs ɪz maɪ tiː/</td>
-          <td><audio controls src="audios/this-is-my-tea.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>This is about me</td>
-          <td>/ðɪs ɪz əˈbaʊt miː/</td>
-          <td><audio controls src="audios/this-is-about-me.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>I have a bachelor of arts</td>
-          <td>/aɪ hæv ə ˈbætʃələr əv ɑrts/</td>
-          <td><audio controls src="audios/i-have-a-bachelor.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>I'm 22 years old</td>
-          <td>/aɪm twɛnti tu jɪrz oʊld/</td>
-          <td><audio controls src="audios/im-22.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>I like tea</td>
-          <td>/aɪ laɪk tiː/</td>
-          <td><audio controls src="audios/i-like-tea.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>I love walking</td>
-          <td>/aɪ lʌv ˈwɔː.kɪŋ/</td>
-          <td><audio controls src="audios/i-love-walking.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>I have bangs since I was a kid</td>
-          <td>/aɪ hæv bæŋz sɪns aɪ wəz ə kɪd/</td>
-          <td><audio controls src="audios/i-have-bangs.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>This is me!</td>
-          <td>/ðɪs ɪz miː/</td>
-          <td><audio controls src="audios/this-is-me.mp3"></audio></td>
-        </tr>
-        <tr>
-          <td>I like to play Ukelele</td>
-          <td>/aɪ laɪk tu pleɪ ˌjuːkəˈleɪli/</td>
-          <td><audio controls src="audios/i-like-ukelele.mp3"></audio></td>
-        </tr>
-      </table>
-    </section>
+  <section>
+    <h2>Section 1: Chunks</h2>
+    <img src="images/rabbit.png" alt="rabbit decor" class="rabbit-deco">
+    <table>
+      <tr><th>Expressão</th><th>Fonética (IPA)</th><th>Pronúncia</th></tr>
+      <tr><td>I'm Kath</td><td>/aɪm kæθ/</td><td><audio controls src="audios/kath.mp3"></audio></td></tr>
+      <tr><td>This is my tea</td><td>/ðɪs ɪz maɪ tiː/</td><td><audio controls src="audios/tea.mp3"></audio></td></tr>
+      <tr><td>This is about me</td><td>/ðɪs ɪz əˈbaʊt miː/</td><td><audio controls src="audios/about me.mp3"></audio></td></tr>
+      <tr><td>I have a bachelor of arts</td><td>/aɪ hæv ə ˈbætʃələr əv ɑrts/</td><td><audio controls src="audios/arts.mp3"></audio></td></tr>
+      <tr><td>I'm 22 years old</td><td>/aɪm twɛnti tu jɪrz oʊld/</td><td><audio controls src="audios/22yearsold.mp3"></audio></td></tr>
+      <tr><td>I like tea</td><td>/aɪ laɪk tiː/</td><td><audio controls src="audios/liketea.mp3"></audio></td></tr>
+      <tr><td>I love walking</td><td>/aɪ lʌv ˈwɔː.kɪŋ/</td><td><audio controls src="audios/walking.mp3"></audio></td></tr>
+      <tr><td>I have bangs since I was a kid</td><td>/aɪ hæv bæŋz sɪns aɪ wəz ə kɪd/</td><td><audio controls src="audios/bangs.mp3"></audio></td></tr>
+      <tr><td>This is me!</td><td>/ðɪs ɪz miː/</td><td><audio controls src="audios/this is me.mp3"></audio></td></tr>
+      <tr><td>I like to play Ukelele</td><td>/aɪ laɪk tu pleɪ ˌjuːkəˈleɪli/</td><td><audio controls src="audios/ukelele.mp3"></audio></td></tr>
+    </table>
+  </section>
 
-    <section>
-      <h2>Vocabulary</h2>
-      <img src="images/bee.png" alt="bee decor" class="bee-deco">
-      <ul>
-        <li><a href="https://youglish.com/pronounce/artist/english" target="_blank">artist</a></li>
-        <li><a href="https://youglish.com/pronounce/student/english" target="_blank">student</a></li>
-        <li><a href="https://youglish.com/pronounce/hobby/english" target="_blank">hobby</a></li>
-        <li><a href="https://youglish.com/pronounce/favorite/english" target="_blank">favorite</a></li>
-        <li><a href="https://youglish.com/pronounce/introduce/english" target="_blank">introduce</a></li>
-      </ul>
-    </section>
+  <section>
+    <h2>Vocabulary</h2>
+    <img src="images/bee.png" alt="bee decor" class="bee-deco">
+    <ul>
+      <li><a href="https://youglish.com/pronounce/artist/english" target="_blank">artist</a></li>
+      <li><a href="https://youglish.com/pronounce/student/english" target="_blank">student</a></li>
+      <li><a href="https://youglish.com/pronounce/hobby/english" target="_blank">hobby</a></li>
+      <li><a href="https://youglish.com/pronounce/favorite/english" target="_blank">favorite</a></li>
+      <li><a href="https://youglish.com/pronounce/introduce/english" target="_blank">introduce</a></li>
+    </ul>
+  </section>
 
-    <section>
-      <h2>Listening</h2>
-      <div class="audio-box">
-        <p>Listen to a short introduction:</p>
-        <audio controls src="audios/listening-aula2.mp3"></audio>
+  <section>
+    <h2>Listening</h2>
+    <div class="audio-box">
+      <p>Listen to a short introduction:</p>
+      <audio controls src="audios/listening-aula2.mp3"></audio>
+      <button class="toggle-button" onclick="toggleTranscript()">Show/Hide Transcript</button>
+      <div id="transcript" class="transcript">
+        Hello! My name is Sofia and I’m from Brazil. I’m twenty two years old and I love spending time with my family. In my free time, I enjoy drawing and listening to music. I’m also a big fan of animals, especially rabbits. Nice to meet you!
       </div>
-      <p>What words did you hear?</p>
-      <input type="text" placeholder="Type here...">
-    </section>
-  </div>
+    </div>
+    <p>What words did you hear?</p>
+    <input type="text" placeholder="Type here...">
+  </section>
 </body>
 </html>
